@@ -5,7 +5,7 @@ export const PageHeader: FC = () => {
   return (
     <header className="page-header container">
       <nav className="page-nav">
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/counter">Counter</NavLink>
         <NavLink to="/uncontrolled-form">Uncontrolled form</NavLink>
       </nav>
     </header>

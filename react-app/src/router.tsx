@@ -1,7 +1,7 @@
-import { createBrowserRouter } from 'react-router-dom';
-import { HomePage } from './pages/HomePage';
+import { createBrowserRouter, redirect } from 'react-router-dom';
 import { UncontrolledFormPage } from './pages/UncontrolledFormPage';
 import { App } from './App';
+import { CounterPage } from './pages/CounterPage';
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +10,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <HomePage />,
+        loader: () => redirect('/counter'),
+      },
+      {
+        path: '/counter',
+        element: <CounterPage />,
       },
       {
         path: '/uncontrolled-form',

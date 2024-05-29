@@ -1,0 +1,27 @@
+.counter {
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.counter button.secondary {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-content: center;
+
+  margin: 0 1rem;
+  font-size: 1rem;
+  border-radius: 1000px;
+}
+
+.counter button.tertiary {
+  margin: auto;
+  height: 2rem;
+  margin-top: 0.75rem;
+  background: #4a4045;
+}
+
+.counter h2 {
+  display: inline-block;
+  margin: 1rem;
+}

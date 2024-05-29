@@ -6,4 +6,9 @@
 .page-nav {
   display: flex;
   gap: 1rem;
+  justify-content: center;
+}
+
+.page-nav a.active {
+  color: rgba(255, 255, 255, 0.87);
 }

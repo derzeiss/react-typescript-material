@@ -11,7 +11,6 @@ export const UncontrolledFormPage: FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Uncontrolled form</h1>
       <label>
         First Name
         <input name="firstname" />
