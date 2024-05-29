@@ -1,0 +1,64 @@
+form {
+  max-width: 24rem;
+  margin: 3rem auto;
+}
+
+input:not([type='radio']) {
+  display: block;
+  width: 100%;
+  height: 3.25rem;
+  margin-top: 0.25rem;
+  padding: 0.75rem;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+input[type='color'] {
+  padding: 0.25rem;
+}
+input[type='radio'] {
+  margin-right: 0.5rem;
+}
+
+label {
+  display: block;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+label:has(input[type='radio']) {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+button {
+  display: flex;
+  align-items: center;
+
+  height: 3rem;
+  padding: 0 1rem;
+  cursor: pointer;
+
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.875rem;
+
+  border: none;
+  border-radius: 0.25rem;
+  background: hotpink;
+}
+
+button:active {
+  background: #d8428d;
+}
+
+button[type='submit'] {
+  margin-top: 1.5rem;
+}

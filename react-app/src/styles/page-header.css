@@ -1,0 +1,9 @@
+.page-header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.page-nav {
+  display: flex;
+  gap: 1rem;
+}
