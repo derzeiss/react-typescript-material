@@ -1,44 +1,30 @@
-// Solution
+// Solution 1: Cleaning the data
 const solution1 = () => {
-  function allPeople(trainerData: string[], attendeeData: (string | number)[]) {
-    const result: (string | number)[] = [];
+  function allPeople(trainerData: string[], attendeeData: string[]) {
+    const result: string[] = [];
     return result.concat(trainerData, attendeeData);
   }
 
   const trainers = ['Joe', 'Toni'];
-  const attendees = ['Max', 'Sepp', 'Arno', 'Otto', 1];
+  const attendees = ['Max', 'Sepp', 'Arno', 'Otto'];
 
-  const allTogether: (string | number)[] = allPeople(trainers, attendees);
+  const allTogether: string[] = allPeople(trainers, attendees);
 };
 
-// Advanced solution with TypeGuards and filtering
+// Solution 2: Union Type
 const solution2 = () => {
-  function allPeopleByFiltering(trainerData: string[], attendeeData: unknown[]): string[] {
-    const attendeeDataString = attendeeData.filter(isString);
-    return trainerData.concat(attendeeDataString);
+  function allPeople(trainerData: string[], attendeeData: (string | number | boolean)[]) {
+    const result: (string | number | boolean)[] = [];
+    return result.concat(trainerData, attendeeData);
   }
-  const isString = (val: unknown): val is string => typeof val === 'string';
-
-  function allPeopleWithTypeGuard(trainerData: string[], attendeeData: unknown[]): string[] {
-    if (isStringArray(attendeeData)) {
-      return trainerData.concat(attendeeData);
-    } else {
-      throw new Error('attendeeData should be a string array');
-    }
-  }
-
-  const isStringArray = (arr: unknown[]): arr is string[] => {
-    return arr.every((i) => typeof i === 'string');
-  };
 
   const trainers = ['Joe', 'Toni'];
-  const attendees = ['Max', 'Sepp', 'Arno', 'Otto', 1, true, new Date()];
+  const attendees = ['Max', 'Sepp', true, 'Arno', 'Otto', 1];
 
-  const allTogether: string[] = allPeopleByFiltering(trainers, attendees);
-
-  console.log(allTogether);
+  const allTogether: (string | number | boolean)[] = allPeople(trainers, attendees);
 };
 
+// Advanced solution with casting
 const solution3 = () => {
   const convertToStringArray = (arr: unknown[]) => arr.map((item) => item + '');
 
@@ -51,6 +37,38 @@ const solution3 = () => {
   const attendees = ['Max', 'Sepp', 'Arno', 'Otto', 1, true, new Date()];
 
   const allTogether: string[] = allPeopleByCasting(trainers, attendees);
+
+  console.log(allTogether);
+};
+
+// Advanced solution with type-check & error
+const solution5 = () => {
+  function allPeopleWithTypeGuard(trainerData: string[], attendeeData: unknown[]): string[] {
+    if (isStringArray(attendeeData)) {
+      return trainerData.concat(attendeeData);
+    } else {
+      throw new Error('attendeeData should be a string array');
+    }
+  }
+
+  const isStringArray = (arr: unknown[]): arr is string[] => {
+    return arr.every((i) => typeof i === 'string');
+  };
+};
+
+// Advanced solution with TypeGuards and filtering
+const solution4 = () => {
+  const isString = (val: unknown): val is string => typeof val === 'string';
+
+  function allPeopleByFiltering(trainerData: string[], attendeeData: unknown[]): string[] {
+    const attendeeDataString = attendeeData.filter(isString);
+    return trainerData.concat(attendeeDataString);
+  }
+
+  const trainers = ['Joe', 'Toni'];
+  const attendees = ['Max', 'Sepp', 'Arno', 'Otto', 1, true, new Date()];
+
+  const allTogether: string[] = allPeopleByFiltering(trainers, attendees);
 
   console.log(allTogether);
 };
