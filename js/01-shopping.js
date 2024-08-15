@@ -19,7 +19,7 @@ function mergeObjectsEx(...obj) {
   return merged;
 }
 
-const mergeObjects = (...objs) => objs.reduce((result, obj) => ({ ...result, ...obj }), {});
+const mergeObjectsEx2 = (...objs) => objs.reduce((result, obj) => ({ ...result, ...obj }), {});
 
 const mergedObj = mergeObjectsEx({ a: 1, b: 2 }, { a: 3, c: 4 }, { a: 5, foo: 'bar' });
 
