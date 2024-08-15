@@ -1,5 +1,5 @@
-const createUser = () => null;
+const createUser = () => 'userCreator';
 export default createUser;
 
-export const printName = () => null;
-export const printAge = () => null;
+export const printName = () => 'printName';
+export const printAge = () => 'printAge';
