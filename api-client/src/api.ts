@@ -72,7 +72,6 @@ export const addBook = <Book>(book: Omit<Book, 'id'>) =>
  * Removes a book from the bookmonkey-API.
  * @returns 204
  */
-
 export const removeBook = (id: string) =>
   fetchJson(`${URL_API}/books/${id}`, {
     method: 'delete',
