@@ -15,15 +15,19 @@ input:not([type='radio']) {
   line-height: 1.5;
 
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 0.25rem;
+  border-radius: 6px;
   background: rgba(255, 255, 255, 0.1);
 }
 
 input[type='color'] {
   padding: 0.25rem;
 }
+
 input[type='radio'] {
   margin-right: 0.5rem;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
 label {
@@ -35,7 +39,46 @@ label {
 
 label:has(input[type='radio']) {
   display: inline-block;
-  margin-right: 1rem;
+  position: relative;
+  padding-left: 2.25rem;
+  margin-right: 2rem;
+  cursor: pointer;
+
+  font-size: 1rem;
+}
+
+label:has(input[type='radio']):before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(1.5rem - 2px); /* account for border */
+  height: calc(1.5rem - 2px); /* account for border */
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1000px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+label:has(input[type='radio']):after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  border-radius: 1000px;
+  background: rgba(255, 255, 255, 0.75);
+
+  transform: scale(0);
+  transition: transform 0.1s;
+}
+
+label:has(input[type='radio']:checked):after {
+  transform: scale(0.5);
 }
 
 button {
