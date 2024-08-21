@@ -7,7 +7,6 @@ export const UncontrolledFormPage: FC = () => {
     const values = Object.fromEntries(data);
     console.log(values);
   };
-  console;
 
   return (
     <form onSubmit={handleSubmit}>
